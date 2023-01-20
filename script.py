@@ -1,6 +1,11 @@
-money = float(input("Введите сумму вклада: "))
-per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
+count = int(input("Введите количество билетов: "))
+summa = 0
+for i in range(1,count+1):
+    age = int(input(f"Введите возраст посетителя № {i}: "))
+    if 18 <= age < 25:
+        summa += 990
+    elif age >= 25:
+        summa += 1390
+summa = round(summa * 0.9 if count > 3 else summa)
+print(f"Сумма к оплате: {summa}")
 
-deposit = list(map(lambda num: round(num / 100 * money), per_cent.values()))
-
-print("Максимальная сумма, которую вы можете заработать — %d" % max(deposit))
